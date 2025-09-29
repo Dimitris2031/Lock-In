@@ -2,7 +2,7 @@
 
 Lock-In Focus is a full-screen study and work timer that keeps you in the zone by temporarily locking your device. Hit the big focus button, the screen fills with a countdown, and stay on task until the bell rings.
 
-This repository now contains a working, browser-based MVP of the Lock-In Focus timer. Open `index.html` in your favorite browser to try it out.
+This repository now ships a React + Vite implementation of the Lock-In Focus timer. The app runs in any modern browser and can be wrapped as a Progressive Web App (PWA) or bundled with Capacitor for Android and iOS delivery.
 
 ## Why It Works
 
@@ -24,12 +24,11 @@ Traditional Pomodoro timers are easy to ignore. Lock-In Focus enforces focus wit
 
 ## MVP Tech Notes
 
-- **Stack:** Vanilla HTML, CSS, and modern JavaScript—no build step required.
-- **Fullscreen lock:** Uses the browser Fullscreen API to dim the rest of your device.
+- **Stack:** React + Vite with modern ES modules and Tailwind-inspired glassmorphism styling.
+- **Fullscreen lock:** Uses the browser Fullscreen API to dim the rest of your device during a session.
 - **Persistence:** Sessions, active timers, and whitelist notes are saved in `localStorage` so you can refresh without losing progress.
 - **Charts & streaks:** A lightweight canvas chart summarizes the past seven days, and the app keeps a rolling streak of daily sessions.
-
-The long-term roadmap still targets a richer stack (React, Capacitor, optional backend) for native apps and pro-grade features.
+- **Mobile readiness:** Ship the PWA directly for mobile browsers or wrap the build output with Capacitor to reach the Play Store and App Store while reusing the React codebase.
 
 ## Data Model
 
@@ -49,16 +48,16 @@ The long-term roadmap still targets a richer stack (React, Capacitor, optional b
 
 ## Try It Locally
 
-Because the app is 100% static, you have two easy options:
+Install dependencies, start the dev server, or produce a production build:
 
-1. Double-click `index.html` to open it directly in your browser (ideal for quick checks).
-2. Serve it with any static web server—for example:
+```bash
+npm install
+npm run dev       # Start Vite locally with hot reloading
+npm run build     # Create an optimized production bundle in dist/
+npm run preview   # Preview the production build locally
+```
 
-   ```bash
-   npx serve .
-   ```
-
-   Then visit the provided `http://localhost` URL.
+The production bundle inside `dist/` can be deployed to any static host or used as the web assets folder when wrapping with Capacitor.
 
 ## Launch Plan
 

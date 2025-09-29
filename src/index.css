@@ -86,6 +86,14 @@ button:active {
   transform: translateY(1px);
 }
 
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .preset {
   background: rgba(56, 189, 248, 0.14);
   color: var(--accent);
@@ -151,7 +159,7 @@ button:active {
   font-weight: 600;
 }
 
-#weekly-chart {
+.weekly-chart {
   margin-top: 1.5rem;
   background: rgba(15, 23, 42, 0.6);
   border-radius: 0.75rem;
@@ -163,7 +171,7 @@ button:active {
   color: var(--muted);
 }
 
-#history-list {
+.history-list {
   list-style: none;
   padding: 0;
   margin: 1rem 0;
