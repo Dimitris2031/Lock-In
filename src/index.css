@@ -1,0 +1,266 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --card-bg: rgba(15, 23, 42, 0.7);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+  --danger: #f87171;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1e293b, #0f172a 60%);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header {
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  letter-spacing: 0.04em;
+}
+
+.tagline {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+.app-layout {
+  width: min(1100px, 100%);
+  padding: 0 1rem 4rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.4);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.preset-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  font: inherit;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.preset {
+  background: rgba(56, 189, 248, 0.14);
+  color: var(--accent);
+}
+
+.primary {
+  background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+  color: #031021;
+  font-weight: 600;
+}
+
+.secondary {
+  background: rgba(148, 163, 184, 0.16);
+  color: var(--text);
+}
+
+.custom-session label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.custom-session input {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.7);
+  color: var(--text);
+}
+
+.custom-session input.error {
+  border-color: rgba(248, 113, 113, 0.65);
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
+}
+
+.playlist {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.stats dl {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.stats dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.stats dd {
+  margin: 0.25rem 0 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.weekly-chart {
+  margin-top: 1.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+}
+
+.history-hint {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(148, 163, 184, 0.12);
+  font-size: 0.9rem;
+}
+
+.whitelist textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.7);
+  color: var(--text);
+  resize: vertical;
+}
+
+.whitelist-status {
+  height: 1.25rem;
+  margin-top: 0.5rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  background: linear-gradient(160deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.5));
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.6);
+  min-width: min(90vw, 420px);
+}
+
+#overlay-timer {
+  font-size: clamp(3rem, 8vw, 6rem);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+#overlay-tag {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+#overlay-note {
+  margin: 0.5rem 0 2rem;
+  color: var(--muted);
+}
+
+#abort-session {
+  background: rgba(248, 113, 113, 0.15);
+  color: var(--danger);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+}
+
+@media (max-width: 720px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .preset-buttons {
+    flex-wrap: wrap;
+  }
+}
